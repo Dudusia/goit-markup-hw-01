@@ -19,8 +19,19 @@ repos:
 
   - repo: local
     hooks:
+      # TODO: make a generic script that accepts --command and --files extension params to run on this
       - id: prettier
         name: Prettier
         entry: ./hooks/pre-commit-prettier.sh
         language: script
         files: \.(html|css|js)$
+      - id: vnu
+        name: VNU
+        entry: vnu ./public
+        language: script
+        files: \.(html|css|js)$
+      - id: squoosh
+        name: squoosh
+        entry: squoosh-cli public/images/*
+        language: script
+        files: \.(jpg|png)$

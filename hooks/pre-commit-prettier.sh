@@ -2,6 +2,7 @@
 FILES=$(git diff --cached --name-only --diff-filter=ACMR | sed 's| |\\ |g')
 [ -z "$FILES" ] && exit 0
 
+# TODO if actual changes are done, should fail and not add to git
 # Prettify all selected files
 echo "$FILES" | xargs ./node_modules/.bin/prettier --ignore-unknown --write
 
