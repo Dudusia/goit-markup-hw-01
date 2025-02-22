@@ -1,0 +1,20 @@
+workflow:
+  rules:
+    - if: $CI_COMMIT_TAG
+      when: never # Skip pipeline for tags
+    - if: $CI_COMMIT_BRANCH
+      when: always # Run pipeline for all branches
+
+stages:
+  - page:deploy
+  
+page:deploy:
+  image: busybox
+  stage: page:deploy
+  script:
+    - echo "The site will be deployed to $CI_PAGES_URL"
+  artifacts:
+    paths:
+    - public
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
