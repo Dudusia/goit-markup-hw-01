@@ -40,6 +40,11 @@ page:deploy:
   stage: page:deploy
   script:
     - echo "Pages accessible through ${CI_PAGES_URL}"
+  environment:
+    name: production
+    url: $CI_PAGES_URL
   artifacts:
     paths:
       - public
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
