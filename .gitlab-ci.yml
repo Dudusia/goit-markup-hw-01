@@ -43,6 +43,7 @@ page:deploy:
   environment:
     name: production
     url: $CI_PAGES_URL
+  pages: true  # specifies that this is a Pages job
   artifacts:
     paths:
       - public
