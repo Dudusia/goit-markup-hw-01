@@ -27,11 +27,12 @@ repos:
         files: \.(html|css|js)$
       - id: vnu
         name: VNU
-        entry: vnu ./public
+        entry: /opt/homebrew/bin/vnu ./public/*.html
         language: script
         files: \.(html|css|js)$
       - id: squoosh
         name: squoosh
-        entry: squoosh-cli public/images/*
+        # TODO: redo it to point to a global path
+        entry: /Users/yevdokiiamazhak/.nvm/versions/node/v20.17.0/bin/squoosh-cli public/images/*
         language: script
         files: \.(jpg|png)$
